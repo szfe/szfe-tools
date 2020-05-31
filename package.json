@@ -1,29 +1,33 @@
 {
   "name": "@szfe/tools",
-  "version": "0.0.0-beta.1",
-  "description": "szfe tools",
+  "version": "0.0.0-beta.2",
+  "description": "辅助工具库",
   "main": "lib/index.js",
-  "unpkg": "lib/index.js",
+  "unpkg": "dist/index.umd.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "es",
-    "lib"
+    "lib",
+    "dist"
   ],
   "scripts": {
-    "build": "lotus-tools build",
-    "format": "prettier --write \"./**/*.ts\""
+    "build": "father-build",
+    "format": "prettier --write \"./**/*.{ts,json}\""
   },
   "homepage": "https://github.com/szfe/tools",
   "repository": {
     "type": "git",
     "url": "https://github.com/szfe/tools.git"
   },
-  "author": "vfe-team",
+  "author": "CJY0208",
   "license": "ISC",
   "devDependencies": {
-    "@lotus-ui/tools": "^0.2.5",
+    "father-build": "^1.18.0",
     "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.2"
   },
   "sideEffects": false
 }
