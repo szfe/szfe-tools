@@ -1,6 +1,6 @@
 {
   "name": "@szfe/tools",
-  "version": "0.0.0-beta.2",
+  "version": "0.0.0-beta.3",
   "description": "辅助工具库",
   "main": "lib/index.js",
   "unpkg": "dist/index.umd.js",

@@ -50,3 +50,12 @@ export const remove = remover(root.localStorage)
 export const getSession = getter(root.sessionStorage)
 export const setSession = setter(root.sessionStorage)
 export const removeSession = remover(root.sessionStorage)
+
+export default {
+  get,
+  set,
+  remove,
+  getSession,
+  setSession,
+  removeSession,
+}

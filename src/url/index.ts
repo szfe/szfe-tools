@@ -59,3 +59,11 @@ export function generateParamStr(
     .map(([key, value]) => [key, encode(value)].join('='))
     .join('&')}`
 }
+
+export default {
+  paramEscape,
+  param,
+  allParamEscape,
+  allParam,
+  generateParamStr,
+}

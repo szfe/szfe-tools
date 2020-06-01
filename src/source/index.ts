@@ -50,3 +50,8 @@ export const css = (href: string) => {
 
   cache.css.push(href)
 }
+
+export default {
+  js,
+  css,
+}

@@ -1,17 +1,24 @@
 import isFunction from './isFunction'
 
+export interface DistanceEventType {
+  distance: number | Function
+  onGoingIn?: Function
+  onGoningOut: Function
+  dynamic?: boolean
+}
+
 const OUTSIDE = 'OUTSIDE'
 const INSIDE = 'INSIDE'
 const DIRECTION_FORWARD = 1
 const DIRECTION_BACKWARD = -1
 const SCROLL_EVENT_NAME = 'scroll'
-const getEventDistance = (event) =>
-  isFunction(event.distance) ? event.distance() : event.distance
+const getEventDistance = (event: DistanceEventType) =>
+  isFunction(event.distance) ? (event.distance as Function)() : event.distance
 
 /**
  * 默认使用 requestAnimationFrame 优化 scroll 监听
  */
-const defaultGetScrollHandler = (onScroll) => {
+const defaultGetScrollHandler = (onScroll: Function): Function => {
   let rAFLock = false
   const scrollHandler = (e) => {
     if (rAFLock) return
@@ -24,13 +31,6 @@ const defaultGetScrollHandler = (onScroll) => {
   }
 
   return scrollHandler
-}
-
-export interface DistanceEventType {
-  distance: number | Function
-  onGoingIn?: Function
-  onGoningOut: Function
-  dynamic?: boolean
 }
 
 export interface ScrollListenerConfig {
