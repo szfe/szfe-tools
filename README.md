@@ -14,6 +14,25 @@ npm install @szfe/tools
 import { isArray } from '@szfe/tools'
 ```
 
+## 按需加载
+
+配合 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 实现按需加载，需将 `camel2DashComponentName` 配置关闭
+
+```js
+// babel.config.js
+module.exports = {
+  plugins: [
+    [
+      'babel-plugin-import',
+      {
+        libraryName: '@szfe/tools',
+        camel2DashComponentName: false
+      }
+    ]
+  ]
+}
+```
+
 ## 导出的方法有以下
 
 ```javascript
