@@ -262,12 +262,17 @@ export default class ScrollListener {
 
     const prev = current.prevEvent || current.getPrevEvent()
     const next = current.nextEvent || current.getNextEvent()
-    const target =
-      direction === DIRECTION_FORWARD
-        ? current
-        : current.status === OUTSIDE
-        ? current
-        : prev
+    let target = current
+
+    if (direction === DIRECTION_FORWARD) {
+      if (current.status === OUTSIDE) {
+        target = next
+      }
+    } else {
+      if (current.status === INSIDE) {
+        target = prev
+      }
+    }
 
     if (target) {
       const changed = this.walkEvent(target, scrollDistance)
