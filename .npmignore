@@ -1,8 +1,8 @@
 node_modules
 src
+.fatherrc.ts
 .gitignore
 .npmignore
 .prettierrc
-lotus-tools.config.ts
 tsconfig.json
 yarn.lock

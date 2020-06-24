@@ -3,15 +3,15 @@
 ## 安装
 
 ```bash
-yarn add @szfe/tools
+yarn add szfe-tools
 # 或者
-npm install @szfe/tools
+npm install szfe-tools
 ```
 
 ## 用法示例
 
 ```js
-import { isArray } from '@szfe/tools'
+import { isArray } from 'szfe-tools'
 ```
 
 ## 按需加载
@@ -25,11 +25,11 @@ module.exports = {
     [
       'babel-plugin-import',
       {
-        libraryName: '@szfe/tools',
-        camel2DashComponentName: false
-      }
-    ]
-  ]
+        libraryName: 'szfe-tools',
+        camel2DashComponentName: false,
+      },
+    ],
+  ],
 }
 ```
 
