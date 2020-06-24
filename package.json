@@ -15,10 +15,10 @@
     "build": "father-build",
     "format": "prettier --write \"./**/*.{ts,json}\""
   },
-  "homepage": "https://github.com/szfe/tools",
+  "homepage": "https://github.com/szfe/szfe-tools",
   "repository": {
     "type": "git",
-    "url": "https://github.com/szfe/tools.git"
+    "url": "https://github.com/szfe/szfe-tools.git"
   },
   "author": "CJY0208",
   "license": "ISC",
