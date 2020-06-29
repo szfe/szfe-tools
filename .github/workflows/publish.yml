@@ -14,7 +14,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@master
       with:
-        node-version: 10.0.0
+        node-version: 13.11.0
         
     - name: Check if version has been updated
       id: check
@@ -22,7 +22,17 @@ jobs:
     
     - name: Log when changed
       if: steps.check.outputs.changed == 'true'
-      run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+      run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'    
+      
+    - name: Install
+      if: steps.check.outputs.changed == 'true'
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: install
+        
+    - name: Build
+      if: steps.check.outputs.changed == 'true'
+      run: 'npm run build'
       
     - name: Publish if version has been updated
       if: steps.check.outputs.changed == 'true'
