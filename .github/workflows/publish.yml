@@ -2,7 +2,7 @@ name: npm-publish
 on:
   push:
     branches:
-      - master # Change this to your default branch
+      - release # Change this to your default branch
 jobs:
   npm-publish:
     name: npm-publish
@@ -15,32 +15,17 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 13.11.0
-        
-    - name: Check if version has been updated
-      id: check
-      uses: EndBug/version-check@v1
-    
-    - name: Log when changed
-      if: steps.check.outputs.changed == 'true'
-      run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'    
-      
+
     - name: Install
-      if: steps.check.outputs.changed == 'true'
       uses: CultureHQ/actions-yarn@master
       with:
         args: install
         
     - name: Build
-      if: steps.check.outputs.changed == 'true'
       run: 'sudo npm run build'
       
     - name: Publish if version has been updated
-      if: steps.check.outputs.changed == 'true'
       uses: pascalgn/npm-publish-action@1.2.0
-      with: # All of theses inputs are optional
-        tag_name: "v${{ steps.check.outputs.version }}"
-        tag_message: "v${{ steps.check.outputs.version }}"
-        commit_pattern: "^Release (\\S+)"
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
