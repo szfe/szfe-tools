@@ -1,9 +1,10 @@
+import root from '../globalThis'
 import isExist from '../isExist'
 
 let isStorageSupported = true
 
 const TEST_KET = '__testSupportive__'
-const storage = window.localStorage
+const storage = root.localStorage
 
 if (!isExist(storage)) {
   isStorageSupported = false
