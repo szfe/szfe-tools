@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@master
+      uses: actions/checkout@release
       
     - name: Set up Node.js
-      uses: actions/setup-node@master
+      uses: actions/setup-node@release
       with:
         node-version: 13.11.0
 
     - name: Install
-      uses: CultureHQ/actions-yarn@master
+      uses: CultureHQ/actions-yarn@release
       with:
         args: install
         
