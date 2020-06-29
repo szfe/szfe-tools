@@ -2,7 +2,7 @@ name: npm-publish
 on:
   push:
     branches:
-      - master # Change this to your default branch
+      - release # Change this to your default branch
 jobs:
   npm-publish:
     name: npm-publish
@@ -37,10 +37,6 @@ jobs:
     - name: Publish if version has been updated
       if: steps.check.outputs.changed == 'true'
       uses: pascalgn/npm-publish-action@1.2.0
-      with: # All of theses inputs are optional
-        tag_name: "v${{ steps.check.outputs.version }}"
-        tag_message: "v${{ steps.check.outputs.version }}"
-        commit_pattern: "^Release (\\S+)"
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
