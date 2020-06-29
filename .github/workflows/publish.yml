@@ -32,7 +32,7 @@ jobs:
         
     - name: Build
       if: steps.check.outputs.changed == 'true'
-      run: 'npm run build'
+      run: 'sudo npm run build'
       
     - name: Publish if version has been updated
       if: steps.check.outputs.changed == 'true'
