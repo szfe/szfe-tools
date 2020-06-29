@@ -2,22 +2,22 @@ name: npm-publish
 on:
   push:
     branches:
-      - release # Change this to your default branch
+      - master # Change this to your default branch
 jobs:
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@release
+      uses: actions/checkout@master
       
     - name: Set up Node.js
-      uses: actions/setup-node@release
+      uses: actions/setup-node@master
       with:
         node-version: 13.11.0
 
     - name: Install
-      uses: CultureHQ/actions-yarn@release
+      uses: CultureHQ/actions-yarn@master
       with:
         args: install
         
